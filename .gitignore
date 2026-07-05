@@ -13,5 +13,6 @@ output_monthly_winner_factors/
 output_revenue_price_high/
 dashboard/asset_curve.png
 dashboard/discord_last_positions.json
+dashboard/*.log
 TOP1_*.md
 top1_*.md
