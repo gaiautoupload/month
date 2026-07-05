@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.pyc
+*.py
+*.bat
+*.ps1
+requirements.txt
+logs/
+output/
+output_aggressive_revenue_events/
+output_event_next_open_fast/
+output_monthly_winner_factors/
+output_revenue_price_high/
+dashboard/asset_curve.png
+dashboard/discord_last_positions.json
+TOP1_*.md
+top1_*.md
