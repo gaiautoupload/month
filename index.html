@@ -2,10 +2,98 @@
 <html lang="zh-Hant">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="refresh" content="0; url=./dashboard/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>月換股儀表板</title>
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <a href="./dashboard/">開啟月換股儀表板</a>
+    <header class="topbar">
+      <div>
+        <h1>月換股儀表板</h1>
+        <p id="subtitle"></p>
+      </div>
+      <div class="stamp" id="generatedAt"></div>
+    </header>
+
+    <main>
+      <section class="kpi-grid" id="kpis"></section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>今年資產成長曲線</h2>
+          <span>完成月份 + 目前進行式 mark-to-market</span>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="equityChart" height="260"></canvas>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>現在進行式</h2>
+          <span id="currentSummary"></span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>排名</th>
+                <th>代號</th>
+                <th>名稱</th>
+                <th>買進日</th>
+                <th>買進價</th>
+                <th>最新日</th>
+                <th>最新收盤</th>
+                <th>目前報酬</th>
+              </tr>
+            </thead>
+            <tbody id="currentRows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section split">
+        <div>
+          <div class="section-head">
+            <h2>今年月績效</h2>
+          </div>
+          <div class="table-wrap compact">
+            <table>
+              <thead>
+                <tr>
+                  <th>月份</th>
+                  <th>月報酬</th>
+                  <th>勝率</th>
+                  <th>20%標的</th>
+                </tr>
+              </thead>
+              <tbody id="monthRows"></tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <div class="section-head">
+            <h2>歷史個股操作</h2>
+          </div>
+          <div class="table-wrap compact">
+            <table>
+              <thead>
+                <tr>
+                  <th>月份</th>
+                  <th>代號</th>
+                  <th>名稱</th>
+                  <th>報酬</th>
+                  <th>20%</th>
+                </tr>
+              </thead>
+              <tbody id="tradeRows"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./data.js"></script>
+    <script src="./app.js"></script>
   </body>
 </html>
