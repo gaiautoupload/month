@@ -3,95 +3,103 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>月換股儀表板</title>
+    <meta name="theme-color" content="#f7f8fa" />
+    <title>月換股操作儀表板</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header class="topbar">
-      <div>
-        <h1>月換股儀表板</h1>
-        <p id="subtitle"></p>
+      <div class="brand">
+        <span class="brand-mark">M</span>
+        <div>
+          <h1>月換股操作儀表板</h1>
+          <p>每月五檔，等權配置</p>
+        </div>
       </div>
-      <div class="stamp" id="generatedAt"></div>
+      <div class="update-time" id="generatedAt"></div>
     </header>
 
     <main>
+      <section class="status-bar" id="dataStatus"></section>
+
+      <section class="action-hero">
+        <div class="action-copy">
+          <span class="eyebrow">本月換股指令</span>
+          <h2 id="actionTitle">準備新一期持股</h2>
+          <p id="actionSummary"></p>
+          <div class="trade-actions" id="tradeActions"></div>
+        </div>
+        <div class="capital-box">
+          <span>目前投資金額</span>
+          <strong id="capitalValue"></strong>
+          <small id="allocationHint"></small>
+          <button class="edit-button" id="editCapital" type="button">編輯金額</button>
+        </div>
+      </section>
+
+      <section class="section picks-section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">現在要買 / 持有</span>
+            <h2>本月五檔配置</h2>
+          </div>
+          <span id="currentSummary"></span>
+        </div>
+        <div class="pick-grid" id="pickCards"></div>
+      </section>
+
       <section class="kpi-grid" id="kpis"></section>
 
       <section class="section">
         <div class="section-head">
-          <h2>今年資產成長曲線</h2>
-          <span>完成月份 + 目前進行式 mark-to-market</span>
-        </div>
-        <div class="chart-wrap">
-          <canvas id="equityChart" height="260"></canvas>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-head">
-          <h2>現在進行式</h2>
-          <span id="currentSummary"></span>
-        </div>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>排名</th>
-                <th>代號</th>
-                <th>名稱</th>
-                <th>買進日</th>
-                <th>買進價</th>
-                <th>最新日</th>
-                <th>最新收盤</th>
-                <th>目前報酬</th>
-              </tr>
-            </thead>
-            <tbody id="currentRows"></tbody>
-          </table>
-        </div>
-      </section>
-
-      <section class="section split">
-        <div>
-          <div class="section-head">
-            <h2>今年月績效</h2>
+          <div>
+            <span class="eyebrow">資產走勢</span>
+            <h2>今年資產成長曲線</h2>
           </div>
+          <span>包含已完成月份與目前持股</span>
+        </div>
+        <div class="chart-wrap"><canvas id="equityChart"></canvas></div>
+      </section>
+
+      <section class="history-grid">
+        <section class="section">
+          <div class="section-head"><h2>每月績效</h2></div>
           <div class="table-wrap compact">
             <table>
-              <thead>
-                <tr>
-                  <th>月份</th>
-                  <th>月報酬</th>
-                  <th>勝率</th>
-                  <th>20%標的</th>
-                </tr>
-              </thead>
+              <thead><tr><th>月份</th><th>報酬率</th><th>個股勝率</th><th>漲幅達 20%</th></tr></thead>
               <tbody id="monthRows"></tbody>
             </table>
           </div>
-        </div>
-        <div>
-          <div class="section-head">
-            <h2>歷史個股操作</h2>
-          </div>
+        </section>
+        <section class="section">
+          <div class="section-head"><h2>歷史個股</h2></div>
           <div class="table-wrap compact">
             <table>
-              <thead>
-                <tr>
-                  <th>月份</th>
-                  <th>代號</th>
-                  <th>名稱</th>
-                  <th>報酬</th>
-                  <th>20%</th>
-                </tr>
-              </thead>
+              <thead><tr><th>月份</th><th>股票</th><th>名稱</th><th>報酬率</th><th>達 20%</th></tr></thead>
               <tbody id="tradeRows"></tbody>
             </table>
           </div>
-        </div>
+        </section>
       </section>
     </main>
+
+    <dialog id="capitalDialog">
+      <form method="dialog" id="capitalForm">
+        <div class="dialog-head">
+          <div><span class="eyebrow">部位試算</span><h2>編輯投資金額</h2></div>
+          <button class="icon-button" value="cancel" aria-label="關閉" type="submit">×</button>
+        </div>
+        <label for="capitalInput">總投資金額（新台幣）</label>
+        <div class="input-prefix"><span>NT$</span><input id="capitalInput" type="number" min="10000" step="10000" inputmode="numeric" required /></div>
+        <p>金額只會儲存在這台裝置，五檔各配置 20%。估算未包含手續費與實際成交滑價。</p>
+        <div class="preset-row">
+          <button type="button" data-capital="500000">50 萬</button>
+          <button type="button" data-capital="1000000">100 萬</button>
+          <button type="button" data-capital="3000000">300 萬</button>
+        </div>
+        <div class="dialog-actions"><button value="cancel" type="submit" class="secondary">取消</button><button value="save" type="submit" class="primary">套用金額</button></div>
+      </form>
+    </dialog>
 
     <script src="./data.js"></script>
     <script src="./app.js"></script>
