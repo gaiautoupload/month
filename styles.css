@@ -118,25 +118,58 @@ dialog::backdrop { background: rgba(18, 28, 24, .5); }
 
 @media (max-width: 1120px) { .pick-grid { grid-template-columns: repeat(3, 1fr); } .kpi-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 760px) {
+  body { font-size: 17px; }
   main { width: min(100% - 28px, 1380px); padding-top: 14px; }
   .topbar { padding: 12px 14px; align-items: flex-start; }
   .version-tabs { width: calc(100% - 28px); margin-top: 10px; }
-  .version-tab { flex: 1; min-width: 0; padding: 9px 10px; }
+  .version-tab { flex: 1; min-width: 0; min-height: 52px; padding: 10px 12px; }
+  .version-tab strong { font-size: 16px; }
+  .version-tab small { font-size: 12px; }
   .update-time { text-align: right; max-width: 120px; }
   .status-bar { align-items: flex-start; flex-direction: column; }
   .action-hero { grid-template-columns: 1fr; }
   .action-copy { padding: 20px; }
-  .action-copy h2 { font-size: 23px; }
+  .action-copy h2 { font-size: 25px; line-height: 1.35; }
+  .action-copy > p { font-size: 16px; line-height: 1.7; }
+  .trade-actions { flex-direction: column; }
+  .trade-pill { width: 100%; font-size: 15px; line-height: 1.65; }
   .capital-box { padding: 18px 20px; border-left: 0; border-top: 1px solid rgba(255,255,255,.12); }
   .pick-grid { grid-template-columns: 1fr; }
-  .pick-card { display: grid; grid-template-columns: 1.1fr 1fr; }
-  .pick-top { border-bottom: 0; border-right: 1px solid var(--line); }
-  .pick-numbers { grid-column: 2; grid-row: 1; }
-  .share-plan, .theme-list { grid-column: 1 / -1; }
+  .pick-card { display: block; }
+  .pick-top { border-right: 0; border-bottom: 1px solid var(--line); padding: 16px; }
+  .stock-code { font-size: 15px; }
+  .stock-name { font-size: 25px; }
+  .primary-theme { font-size: 14px; padding: 6px 9px; }
+  .number-cell { padding: 13px 14px; }
+  .number-cell span { font-size: 13px; }
+  .number-cell strong { font-size: 18px; }
+  .share-plan { padding: 14px; }
+  .share-plan strong { font-size: 20px; line-height: 1.45; }
+  .share-plan span { display: block; margin-top: 4px; font-size: 14px; line-height: 1.5; }
+  .theme-list { padding: 12px 14px 16px; gap: 7px; }
+  .theme-tag { font-size: 13px; padding: 5px 7px; }
   .kpi-grid { grid-template-columns: repeat(2, 1fr); }
   .history-grid { grid-template-columns: 1fr; gap: 0; }
   .section { padding: 14px; }
+  .section-head h2 { font-size: 20px; }
+  .section-head > span { font-size: 14px; line-height: 1.5; }
+  .edit-button { min-height: 48px; font-size: 16px; }
+  .capital-box strong { font-size: 31px; }
+  th, td { padding: 12px 10px; font-size: 15px; }
   .section-head { align-items: flex-start; flex-direction: column; gap: 5px; }
 }
 
-@media (max-width: 420px) { .brand p { display: none; } .brand h1 { font-size: 16px; } .kpi .value { font-size: 19px; } }
+@media (max-width: 520px) {
+  .topbar { flex-direction: column; gap: 7px; }
+  .update-time { max-width: none; text-align: left; font-size: 13px; }
+  .version-tabs { display: grid; grid-template-columns: 1fr; }
+  .pick-numbers { grid-template-columns: 1fr; }
+  .number-cell:nth-child(odd) { border-right: 0; }
+  .kpi-grid { grid-template-columns: 1fr; }
+  .kpi .label { font-size: 14px; }
+  .kpi .value { font-size: 24px; }
+  .status-bar { font-size: 15px; line-height: 1.6; }
+  .preset-row { flex-direction: column; }
+  .preset-row button { min-height: 46px; font-size: 16px; }
+  .dialog-actions button { min-height: 48px; }
+}
