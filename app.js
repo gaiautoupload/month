@@ -2,6 +2,7 @@ const data = window.DASHBOARD_DATA;
 const DEFAULT_CAPITAL = 1000000;
 const CAPITAL_KEY = "monthlyRotationCapital";
 let capital = Number(localStorage.getItem(CAPITAL_KEY)) || DEFAULT_CAPITAL;
+let activeVersion = localStorage.getItem("monthlyRotationVersion") === "enhanced" ? "enhanced" : "original";
 
 const money = new Intl.NumberFormat("zh-TW", { style: "currency", currency: "TWD", maximumFractionDigits: 0 });
 const number = new Intl.NumberFormat("zh-TW", { maximumFractionDigits: 0 });
@@ -33,8 +34,9 @@ function latestCompletedHoldings() {
 
 function renderStatus() {
   const status = data.dataStatus || {};
+  const enhanced = activeVersion === "enhanced";
   document.getElementById("dataStatus").innerHTML = `
-    <strong>${escapeHtml(status.rebalanceNotice || "資料已更新")}</strong>
+    <strong>${enhanced ? "加強版監控已就緒" : escapeHtml(status.rebalanceNotice || "資料已更新")}</strong>
     <span class="status-meta">交易資料 ${escapeHtml(status.latestTradeDate || "-")} · 法人 ${escapeHtml(status.latestChipDate || "-")} · 營收 ${escapeHtml(status.latestRevenueMonth || "-")}</span>`;
   document.getElementById("generatedAt").textContent = `更新：${String(data.generatedAt).replace("T", " ")}`;
 }
@@ -45,12 +47,17 @@ function renderActions() {
   const old = latestCompletedHoldings();
   const sells = old.filter((row) => !currentIds.has(String(row.stockId)));
   const buyDate = data.current.summary.buyDate || positions[0]?.buyDate || "下一交易日";
-  document.getElementById("actionTitle").textContent = `${buyDate} 執行換股`;
-  document.getElementById("actionSummary").textContent = "先完成舊持股賣出，再將可用資金平均配置到本月五檔。";
+  const enhanced = activeVersion === "enhanced";
+  const rule = data.enhancedVersion || { stopLossPct: 15, reviewTradingDay: 10, cullCount: 2 };
+  document.getElementById("actionTitle").textContent = enhanced ? `${buyDate} 啟動加強版` : `${buyDate} 執行換股`;
+  document.getElementById("actionSummary").textContent = enhanced
+    ? `五檔等權買進，設定 -${rule.stopLossPct}% 防守線，並於第 ${rule.reviewTradingDay} 個交易日執行汰弱留強。`
+    : "先完成舊持股賣出，再將可用資金平均配置到本月五檔。";
   const sellText = sells.length ? `賣出 ${sells.map((row) => `${row.stockId} ${row.name}`).join("、")}` : "本期無需賣出";
   document.getElementById("tradeActions").innerHTML = `
     <span class="trade-pill sell">${escapeHtml(sellText)}</span>
-    <span class="trade-pill">買進 ${positions.map((row) => `${row.stockId} ${row.name}`).join("、")}</span>`;
+    <span class="trade-pill">買進 ${positions.map((row) => `${row.stockId} ${row.name}`).join("、")}</span>
+    ${enhanced ? `<span class="trade-pill enhanced-rule">第 ${rule.reviewTradingDay} 日淘汰虧損最弱 ${rule.cullCount} 檔</span>` : ""}`;
 }
 
 function renderCapital() {
@@ -70,6 +77,8 @@ function shareEstimate(price, budget) {
 function renderPicks() {
   const perStock = capital / Math.max(data.current.positions.length, 1);
   document.getElementById("pickCards").innerHTML = data.current.positions.map((row) => {
+    const enhanced = activeVersion === "enhanced";
+    const rule = data.enhancedVersion || { stopLossPct: 15, reviewTradingDay: 10 };
     const estimate = shareEstimate(Number(row.latestClose), perStock);
     const shareText = estimate.lots > 0 ? `${estimate.lots} 張 + ${number.format(estimate.oddShares)} 股` : `${number.format(estimate.oddShares)} 股`;
     const tags = (row.conceptTags || []).filter((tag, index, list) => tag && list.indexOf(tag) === index).slice(0, 6);
@@ -82,9 +91,9 @@ function renderPicks() {
       </div>
       <div class="pick-numbers">
         <div class="number-cell"><span>參考收盤</span><strong>${money.format(row.latestClose)}</strong></div>
-        <div class="number-cell"><span>配置預算</span><strong>${money.format(perStock)}</strong></div>
+        <div class="number-cell"><span>${enhanced ? `-${rule.stopLossPct}% 停損價` : "配置預算"}</span><strong class="${enhanced ? "stop-line" : ""}">${enhanced ? money.format(row.latestClose * (1 - rule.stopLossPct / 100)) : money.format(perStock)}</strong></div>
         <div class="number-cell"><span>資料日期</span><strong>${escapeHtml(row.latestDate)}</strong></div>
-        <div class="number-cell"><span>模型排名</span><strong>${Number(row.score).toFixed(3)}</strong></div>
+        <div class="number-cell"><span>${enhanced ? "強弱檢查" : "模型排名"}</span><strong>${enhanced ? `第 ${rule.reviewTradingDay} 日` : Number(row.score).toFixed(3)}</strong></div>
       </div>
       <div class="share-plan"><strong>估計買進 ${shareText}</strong><span>預估使用 ${money.format(estimate.estimatedCost)}，實際以成交價為準</span></div>
       <div class="theme-list">${tags.map((tag) => `<span class="theme-tag" title="${escapeHtml(tag)}">${escapeHtml(tag)}</span>`).join("")}</div>
@@ -97,7 +106,15 @@ function renderPicks() {
 }
 
 function renderKpis() {
-  const items = [
+  const enhanced = activeVersion === "enhanced";
+  const bt = data.enhancedVersion?.backtest;
+  const items = enhanced && bt ? [
+    ["加強版回測總報酬", fmtPct(bt.totalReturnPct), bt.totalReturnPct],
+    ["平均每期報酬", fmtPct(bt.avgPeriodReturnPct), bt.avgPeriodReturnPct],
+    ["回測勝率", `${Number(bt.winRatePct).toFixed(2)}%`, bt.winRatePct],
+    ["最大回撤", `${Number(bt.maxDrawdownPct).toFixed(2)}%`, bt.maxDrawdownPct],
+    ["目前監控持股", data.summary.currentPositions, 1],
+  ] : [
     ["今年累積報酬", fmtPct(data.summary.ytdMarkedReturnPct), data.summary.ytdMarkedReturnPct],
     ["已完成月份報酬", fmtPct(data.summary.completedReturnPct), data.summary.completedReturnPct],
     ["目前持股報酬", fmtPct(data.summary.currentMonthReturnPct), data.summary.currentMonthReturnPct],
@@ -105,6 +122,19 @@ function renderKpis() {
     ["個股勝率", `${Number(data.summary.stockWinRatePct).toFixed(2)}%`, data.summary.stockWinRatePct],
   ];
   document.getElementById("kpis").innerHTML = items.map(([label, value, raw]) => `<div class="kpi"><div class="label">${label}</div><div class="value ${cls(raw)}">${value}</div></div>`).join("");
+}
+
+function renderVersion() {
+  document.body.dataset.version = activeVersion;
+  document.querySelectorAll("[data-version]").forEach((button) => {
+    const selected = button.dataset.version === activeVersion;
+    button.classList.toggle("active", selected);
+    button.setAttribute("aria-selected", String(selected));
+  });
+  const enhanced = activeVersion === "enhanced";
+  document.getElementById("chartTitle").textContent = enhanced ? "實際資產成長曲線" : "今年資產成長曲線";
+  document.getElementById("chartNote").textContent = enhanced ? "加強版尚在監控，曲線目前沿用實際原版績效" : "包含已完成月份與目前持股";
+  renderStatus(); renderActions(); renderPicks(); renderKpis(); drawEquityChart();
 }
 
 function renderHistory() {
@@ -154,5 +184,11 @@ document.getElementById("capitalForm").addEventListener("submit", (event) => {
   renderCapital(); renderPicks(); dialog.close();
 });
 
-renderStatus(); renderActions(); renderCapital(); renderPicks(); renderKpis(); renderHistory(); drawEquityChart();
+document.querySelectorAll("[data-version]").forEach((button) => button.addEventListener("click", () => {
+  activeVersion = button.dataset.version;
+  localStorage.setItem("monthlyRotationVersion", activeVersion);
+  renderVersion();
+}));
+
+renderCapital(); renderHistory(); renderVersion();
 window.addEventListener("resize", drawEquityChart);

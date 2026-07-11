@@ -1,5 +1,5 @@
 window.DASHBOARD_DATA = {
-  "generatedAt": "2026-07-11T12:17:00",
+  "generatedAt": "2026-07-11T20:20:14",
   "strategyName": "月增 + 近5日最高價 > 60日均線 + Walk-forward共同點模型",
   "summary": {
     "completedMonths": 6,
@@ -509,6 +509,20 @@ window.DASHBOARD_DATA = {
     "expectedRevenueMonth": "2026-06",
     "newMonthRevenueReady": true,
     "rebalanceNotice": "新月營收已就緒，可以依最新名單換股。"
+  },
+  "enhancedVersion": {
+    "name": "加強版",
+    "stopLossPct": 15,
+    "reviewTradingDay": 10,
+    "cullCount": 2,
+    "backtest": {
+      "periods": 26,
+      "totalReturnPct": 816.09,
+      "avgPeriodReturnPct": 10.32,
+      "winRatePct": 69.23,
+      "maxDrawdownPct": -22.03
+    },
+    "notice": "每檔跌幅達 15% 停損；第 10 個交易日檢查，賣出仍虧損的最弱兩檔，資金轉配其餘強股。"
   },
   "equityCurve": [
     {

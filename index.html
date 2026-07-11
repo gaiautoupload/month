@@ -19,6 +19,15 @@
       <div class="update-time" id="generatedAt"></div>
     </header>
 
+    <nav class="version-tabs" aria-label="策略版本">
+      <button class="version-tab active" id="originalTab" data-version="original" type="button" aria-selected="true">
+        <span class="tab-dot"></span><span><strong>原版</strong><small>每月五檔換股</small></span>
+      </button>
+      <button class="version-tab enhanced" id="enhancedTab" data-version="enhanced" type="button" aria-selected="false">
+        <span class="tab-dot"></span><span><strong>加強版</strong><small>停損＋汰弱留強</small></span>
+      </button>
+    </nav>
+
     <main>
       <section class="status-bar" id="dataStatus"></section>
 
@@ -54,9 +63,9 @@
         <div class="section-head">
           <div>
             <span class="eyebrow">資產走勢</span>
-            <h2>今年資產成長曲線</h2>
+            <h2 id="chartTitle">今年資產成長曲線</h2>
           </div>
-          <span>包含已完成月份與目前持股</span>
+          <span id="chartNote">包含已完成月份與目前持股</span>
         </div>
         <div class="chart-wrap"><canvas id="equityChart"></canvas></div>
       </section>
