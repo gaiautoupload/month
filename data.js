@@ -1,5 +1,5 @@
 window.DASHBOARD_DATA = {
-  "generatedAt": "2026-09-03T17:42:24",
+  "generatedAt": "2026-09-03T18:06:08",
   "strategyName": "月增 + 近5日最高價 > 60日均線 + Walk-forward共同點模型",
   "summary": {
     "completedMonths": 7,
@@ -478,7 +478,10 @@ window.DASHBOARD_DATA = {
         ],
         "latestDate": "2026-09-03",
         "latestClose": 13450.0,
-        "returnPct": 14.96
+        "returnPct": 14.96,
+        "peakDate": "2026-08-18",
+        "peakPrice": 15085.0,
+        "peakReturnPct": 28.93
       },
       {
         "rank": 2,
@@ -497,7 +500,10 @@ window.DASHBOARD_DATA = {
         ],
         "latestDate": "2026-09-03",
         "latestClose": 3120.0,
-        "returnPct": 28.93
+        "returnPct": 28.93,
+        "peakDate": "2026-09-01",
+        "peakPrice": 3600.0,
+        "peakReturnPct": 48.76
       },
       {
         "rank": 3,
@@ -516,7 +522,10 @@ window.DASHBOARD_DATA = {
         ],
         "latestDate": "2026-09-03",
         "latestClose": 775.0,
-        "returnPct": -5.49
+        "returnPct": -5.49,
+        "peakDate": "2026-08-27",
+        "peakPrice": 960.0,
+        "peakReturnPct": 17.07
       },
       {
         "rank": 4,
@@ -543,7 +552,10 @@ window.DASHBOARD_DATA = {
         ],
         "latestDate": "2026-09-03",
         "latestClose": 512.0,
-        "returnPct": 19.77
+        "returnPct": 19.77,
+        "peakDate": "2026-08-27",
+        "peakPrice": 599.0,
+        "peakReturnPct": 40.12
       },
       {
         "rank": 5,
@@ -563,7 +575,10 @@ window.DASHBOARD_DATA = {
         ],
         "latestDate": "2026-09-03",
         "latestClose": 110.0,
-        "returnPct": -5.17
+        "returnPct": -5.17,
+        "peakDate": "2026-08-18",
+        "peakPrice": 141.0,
+        "peakReturnPct": 21.55
       }
     ]
   },

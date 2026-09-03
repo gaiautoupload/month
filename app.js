@@ -100,6 +100,9 @@ function renderPicks() {
         <div class="number-cell"><span>最新價格</span><strong>${money.format(latestPrice)}</strong></div>
         <div class="number-cell"><span>個股報酬率</span><strong class="${cls(row.returnPct)}">${fmtPct(row.returnPct)}</strong></div>
         <div class="number-cell"><span>未實現損益（估算）</span><strong class="${cls(unrealizedProfit)}">${unrealizedProfit >= 0 ? "+" : ""}${money.format(unrealizedProfit)}</strong></div>
+        <div class="number-cell"><span>期間最高價日期</span><strong>${escapeHtml(row.peakDate || "-")}</strong></div>
+        <div class="number-cell"><span>期間最高價</span><strong>${money.format(Number(row.peakPrice || 0))}</strong></div>
+        <div class="number-cell peak-return"><span>最高價換算報酬</span><strong class="${cls(row.peakReturnPct)}">${fmtPct(row.peakReturnPct)}</strong></div>
       </div>
       <div class="share-plan"><strong>${pending ? "估計買進" : "估計持有"} ${shareText}</strong><span>${pending ? "預估使用" : "估算買入金額"} ${money.format(estimate.estimatedCost)}，請以實際成交股數與價格為準</span></div>
       <div class="theme-list">${tags.map((tag) => `<span class="theme-tag" title="${escapeHtml(tag)}">${escapeHtml(tag)}</span>`).join("")}</div>
