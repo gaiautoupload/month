@@ -79,7 +79,11 @@ function renderPicks() {
   document.getElementById("pickCards").innerHTML = data.current.positions.map((row) => {
     const enhanced = activeVersion === "enhanced";
     const rule = data.enhancedVersion || { stopLossPct: 15, reviewTradingDay: 10 };
-    const estimate = shareEstimate(Number(row.latestClose), perStock);
+    const pending = Boolean(data.current.summary.pendingEntry);
+    const buyPrice = Number(row.buyPrice || row.latestClose);
+    const latestPrice = Number(row.latestClose);
+    const estimate = shareEstimate(pending ? latestPrice : buyPrice, perStock);
+    const unrealizedProfit = pending ? 0 : (latestPrice - buyPrice) * estimate.totalShares;
     const shareText = estimate.lots > 0 ? `${estimate.lots} 張 + ${number.format(estimate.oddShares)} 股` : `${number.format(estimate.oddShares)} 股`;
     const tags = (row.conceptTags || []).filter((tag, index, list) => tag && list.indexOf(tag) === index).slice(0, 6);
     return `<article class="pick-card">
@@ -90,12 +94,14 @@ function renderPicks() {
         <span class="primary-theme">${escapeHtml(primaryTheme(tags))}</span>
       </div>
       <div class="pick-numbers">
-        <div class="number-cell"><span>參考收盤</span><strong>${money.format(row.latestClose)}</strong></div>
-        <div class="number-cell"><span>${enhanced ? `-${rule.stopLossPct}% 停損價` : "配置預算"}</span><strong class="${enhanced ? "stop-line" : ""}">${enhanced ? money.format(row.latestClose * (1 - rule.stopLossPct / 100)) : money.format(perStock)}</strong></div>
-        <div class="number-cell"><span>資料日期</span><strong>${escapeHtml(row.latestDate)}</strong></div>
-        <div class="number-cell"><span>${enhanced ? "強弱檢查" : "模型排名"}</span><strong>${enhanced ? `第 ${rule.reviewTradingDay} 日` : Number(row.score).toFixed(3)}</strong></div>
+        <div class="number-cell"><span>買入日期</span><strong>${escapeHtml(row.buyDate)}</strong></div>
+        <div class="number-cell"><span>買入成本</span><strong>${money.format(buyPrice)}</strong></div>
+        <div class="number-cell"><span>最新日期</span><strong>${escapeHtml(row.latestDate)}</strong></div>
+        <div class="number-cell"><span>最新價格</span><strong>${money.format(latestPrice)}</strong></div>
+        <div class="number-cell"><span>個股報酬率</span><strong class="${cls(row.returnPct)}">${fmtPct(row.returnPct)}</strong></div>
+        <div class="number-cell"><span>未實現損益（估算）</span><strong class="${cls(unrealizedProfit)}">${unrealizedProfit >= 0 ? "+" : ""}${money.format(unrealizedProfit)}</strong></div>
       </div>
-      <div class="share-plan"><strong>估計買進 ${shareText}</strong><span>預估使用 ${money.format(estimate.estimatedCost)}，實際以成交價為準</span></div>
+      <div class="share-plan"><strong>${pending ? "估計買進" : "估計持有"} ${shareText}</strong><span>${pending ? "預估使用" : "估算買入金額"} ${money.format(estimate.estimatedCost)}，請以實際成交股數與價格為準</span></div>
       <div class="theme-list">${tags.map((tag) => `<span class="theme-tag" title="${escapeHtml(tag)}">${escapeHtml(tag)}</span>`).join("")}</div>
     </article>`;
   }).join("");
