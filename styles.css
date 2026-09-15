@@ -99,6 +99,9 @@ table { width: 100%; border-collapse: collapse; min-width: 560px; }
 th, td { padding: 9px 10px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; font-size: 12px; }
 th { position: sticky; top: 0; z-index: 1; background: #f0f3f1; color: #4b5651; font-weight: 700; }
 th:nth-child(1), td:nth-child(1), th:nth-child(3), td:nth-child(3) { text-align: left; }
+.ongoing-row { background: #f2faf6; }
+.month-status { display: inline-block; padding: 3px 6px; border-radius: 4px; background: #e8ecea; color: #59635e; font-size: 11px; font-weight: 700; }
+.month-status.live { background: #dcefe5; color: var(--good); }
 
 dialog { width: min(460px, calc(100% - 28px)); padding: 0; border: 0; border-radius: 8px; box-shadow: 0 24px 70px rgba(17,34,27,.24); }
 dialog::backdrop { background: rgba(18, 28, 24, .5); }
