@@ -159,7 +159,16 @@ function renderHistory() {
   }] : [];
   const monthlyRows = [...ongoing, ...[...data.monthlyHistory].reverse()];
   document.getElementById("monthRows").innerHTML = monthlyRows.map((row) => `<tr class="${row.ongoing ? "ongoing-row" : ""}"><td>${row.month}</td><td><span class="month-status ${row.ongoing ? "live" : ""}">${row.ongoing ? "進行中" : "已結算"}</span></td><td class="${cls(row.returnPct)}">${fmtPct(row.returnPct)}</td><td>${Number(row.winRatePct).toFixed(2)}%</td><td>${row.winner20Count}/${row.holdingCount}</td></tr>`).join("");
-  document.getElementById("tradeRows").innerHTML = [...data.historicalTrades].reverse().map((row) => `<tr><td>${row.month}</td><td>${row.stockId}</td><td>${escapeHtml(row.name)}</td><td class="${cls(row.returnPct)}">${fmtPct(row.returnPct)}</td><td>${row.hit20 ? "是" : "否"}</td></tr>`).join("");
+  const liveTrades = current.signalMonth && !current.closed ? currentPositions.map((row) => ({
+    month: current.signalMonth,
+    stockId: row.stockId,
+    name: row.name,
+    returnPct: Number(row.returnPct || 0),
+    hit20: Number(row.returnPct || 0) >= 20,
+    ongoing: true,
+  })) : [];
+  const tradeRows = [...liveTrades, ...[...data.historicalTrades].reverse()];
+  document.getElementById("tradeRows").innerHTML = tradeRows.map((row) => `<tr class="${row.ongoing ? "ongoing-row" : ""}"><td>${row.month}</td><td><span class="month-status ${row.ongoing ? "live" : ""}">${row.ongoing ? "進行中" : "已結算"}</span></td><td>${escapeHtml(row.stockId)}</td><td>${escapeHtml(row.name)}</td><td class="${cls(row.returnPct)}">${fmtPct(row.returnPct)}</td><td>${row.hit20 ? "是" : "否"}</td></tr>`).join("");
 }
 
 function drawEquityChart() {
