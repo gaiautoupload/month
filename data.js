@@ -1,5 +1,5 @@
 window.DASHBOARD_DATA = {
-  "generatedAt": "2026-10-23T18:36:39",
+  "generatedAt": "2026-10-26T18:35:36",
   "strategyName": "月增 + 近5日最高價 > 60日均線 + Walk-forward共同點模型",
   "summary": {
     "completedMonths": 9,
@@ -576,7 +576,7 @@ window.DASHBOARD_DATA = {
     "summary": {
       "avgReturnPct": -7.28,
       "winRatePct": 20.0,
-      "latestDate": "2026-10-22",
+      "latestDate": "2026-10-23",
       "count": 5,
       "pendingEntry": false,
       "closed": false,
@@ -602,7 +602,7 @@ window.DASHBOARD_DATA = {
           "連接器/線束",
           "基礎產業:電子零組件業"
         ],
-        "latestDate": "2026-10-22",
+        "latestDate": "2026-10-23",
         "latestClose": 47.1,
         "returnPct": 16.58,
         "peakDate": "2026-10-14",
@@ -626,7 +626,7 @@ window.DASHBOARD_DATA = {
           "檢測設備/服務",
           "基礎產業:電腦及週邊設備業"
         ],
-        "latestDate": "2026-10-22",
+        "latestDate": "2026-10-23",
         "latestClose": 53.2,
         "returnPct": -18.78,
         "peakDate": "2026-10-13",
@@ -652,7 +652,7 @@ window.DASHBOARD_DATA = {
           "晶圓製程設備零組件",
           "玻璃/建材玻璃"
         ],
-        "latestDate": "2026-10-22",
+        "latestDate": "2026-10-23",
         "latestClose": 777.0,
         "returnPct": -3.36,
         "peakDate": "2026-10-22",
@@ -675,7 +675,7 @@ window.DASHBOARD_DATA = {
           "半導體IP/設計服務",
           "基礎產業:半導體業"
         ],
-        "latestDate": "2026-10-22",
+        "latestDate": "2026-10-23",
         "latestClose": 60.1,
         "returnPct": -14.02,
         "peakDate": "2026-10-12",
@@ -697,7 +697,7 @@ window.DASHBOARD_DATA = {
           "半導體IP/設計服務",
           "基礎產業:半導體業"
         ],
-        "latestDate": "2026-10-22",
+        "latestDate": "2026-10-23",
         "latestClose": 45.5,
         "returnPct": -16.82,
         "peakDate": "2026-10-12",
@@ -707,7 +707,7 @@ window.DASHBOARD_DATA = {
     ]
   },
   "dataStatus": {
-    "asOfDate": "2026-10-23",
+    "asOfDate": "2026-10-26",
     "latestTradeDate": "2026-10-22",
     "latestChipDate": "2026-10-22",
     "latestRevenueMonth": "2026-09",
@@ -791,7 +791,7 @@ window.DASHBOARD_DATA = {
       "kind": "completed"
     },
     {
-      "label": "Current 2026-10-22",
+      "label": "Current 2026-10-23",
       "equity": 2.0292,
       "returnPct": -7.28,
       "kind": "current"
