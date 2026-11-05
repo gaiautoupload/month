@@ -1,13 +1,13 @@
 window.DASHBOARD_DATA = {
-  "generatedAt": "2026-11-04T17:34:35",
+  "generatedAt": "2026-11-05T17:34:13",
   "strategyName": "月增 + 近5日最高價 > 60日均線 + Walk-forward共同點模型",
   "summary": {
-    "completedMonths": 9,
-    "completedReturnPct": 94.66,
-    "currentMonthReturnPct": -16.57,
-    "ytdMarkedReturnPct": 62.41,
-    "monthlyWinRatePct": 77.78,
-    "stockWinRatePct": 56.0,
+    "completedMonths": 10,
+    "completedReturnPct": 79.83,
+    "currentMonthReturnPct": -16.23,
+    "ytdMarkedReturnPct": 50.64,
+    "monthlyWinRatePct": 70.0,
+    "stockWinRatePct": 54.0,
     "currentPositions": 5
   },
   "monthlyHistory": [
@@ -55,24 +55,31 @@ window.DASHBOARD_DATA = {
     },
     {
       "month": "2026-07",
-      "returnPct": -45.06,
-      "winner20Count": 1,
+      "returnPct": -39.96,
+      "winner20Count": 2,
       "holdingCount": 5,
       "winRatePct": 0.0
     },
     {
       "month": "2026-08",
-      "returnPct": 13.34,
+      "returnPct": 16.07,
       "winner20Count": 3,
       "holdingCount": 5,
       "winRatePct": 60.0
     },
     {
       "month": "2026-09",
-      "returnPct": 20.65,
+      "returnPct": 17.76,
       "winner20Count": 2,
       "holdingCount": 5,
-      "winRatePct": 60.0
+      "winRatePct": 40.0
+    },
+    {
+      "month": "2026-10",
+      "returnPct": -15.43,
+      "winner20Count": 1,
+      "holdingCount": 5,
+      "winRatePct": 0.0
     }
   ],
   "historicalTrades": [
@@ -85,7 +92,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-01-30",
       "returnPct": 36.46,
       "hit20": true,
-      "score": 1.444
+      "score": 1.438
     },
     {
       "month": "2026-01",
@@ -96,7 +103,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-01-30",
       "returnPct": -9.8,
       "hit20": false,
-      "score": 1.093
+      "score": 1.088
     },
     {
       "month": "2026-01",
@@ -107,7 +114,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-01-30",
       "returnPct": 32.95,
       "hit20": true,
-      "score": 0.995
+      "score": 0.993
     },
     {
       "month": "2026-01",
@@ -118,7 +125,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-01-30",
       "returnPct": -0.06,
       "hit20": false,
-      "score": 0.882
+      "score": 0.877
     },
     {
       "month": "2026-01",
@@ -129,7 +136,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-01-30",
       "returnPct": 3.44,
       "hit20": false,
-      "score": 0.747
+      "score": 0.742
     },
     {
       "month": "2026-02",
@@ -140,7 +147,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-02-26",
       "returnPct": -2.48,
       "hit20": false,
-      "score": 1.544
+      "score": 1.541
     },
     {
       "month": "2026-02",
@@ -151,7 +158,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-02-26",
       "returnPct": 16.93,
       "hit20": true,
-      "score": 1.352
+      "score": 1.348
     },
     {
       "month": "2026-02",
@@ -162,7 +169,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-02-26",
       "returnPct": 2.74,
       "hit20": false,
-      "score": 1.242
+      "score": 1.239
     },
     {
       "month": "2026-02",
@@ -173,7 +180,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-02-26",
       "returnPct": 2.42,
       "hit20": false,
-      "score": 1.205
+      "score": 1.203
     },
     {
       "month": "2026-02",
@@ -184,7 +191,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-02-26",
       "returnPct": -1.7,
       "hit20": false,
-      "score": 1.181
+      "score": 1.177
     },
     {
       "month": "2026-03",
@@ -195,7 +202,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-03-31",
       "returnPct": 0.06,
       "hit20": false,
-      "score": 0.672
+      "score": 0.667
     },
     {
       "month": "2026-03",
@@ -206,7 +213,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-03-31",
       "returnPct": -0.97,
       "hit20": true,
-      "score": 0.219
+      "score": 0.251
     },
     {
       "month": "2026-03",
@@ -228,7 +235,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-03-31",
       "returnPct": -8.37,
       "hit20": false,
-      "score": -0.01
+      "score": 0.035
     },
     {
       "month": "2026-03",
@@ -239,7 +246,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-03-31",
       "returnPct": 5.35,
       "hit20": false,
-      "score": -0.214
+      "score": -0.341
     },
     {
       "month": "2026-04",
@@ -250,7 +257,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-04-30",
       "returnPct": 48.07,
       "hit20": true,
-      "score": 2.509
+      "score": 2.508
     },
     {
       "month": "2026-04",
@@ -261,7 +268,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-04-30",
       "returnPct": 49.48,
       "hit20": true,
-      "score": 1.204
+      "score": 1.219
     },
     {
       "month": "2026-04",
@@ -272,7 +279,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-04-30",
       "returnPct": 38.19,
       "hit20": true,
-      "score": 1.133
+      "score": 1.135
     },
     {
       "month": "2026-04",
@@ -283,7 +290,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-04-30",
       "returnPct": 10.52,
       "hit20": true,
-      "score": 0.93
+      "score": 0.945
     },
     {
       "month": "2026-04",
@@ -305,7 +312,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-05-29",
       "returnPct": 13.67,
       "hit20": true,
-      "score": 1.407
+      "score": 1.442
     },
     {
       "month": "2026-05",
@@ -316,18 +323,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-05-29",
       "returnPct": 20.81,
       "hit20": true,
-      "score": 1.152
-    },
-    {
-      "month": "2026-05",
-      "stockId": "2486",
-      "name": "一詮",
-      "signalDate": "2026-05-11",
-      "entryPrice": 291.0,
-      "monthEndDate": "2026-05-29",
-      "returnPct": -9.49,
-      "hit20": false,
-      "score": 1.09
+      "score": 1.147
     },
     {
       "month": "2026-05",
@@ -338,7 +334,18 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-05-29",
       "returnPct": 69.03,
       "hit20": true,
-      "score": 1.088
+      "score": 1.098
+    },
+    {
+      "month": "2026-05",
+      "stockId": "2486",
+      "name": "一詮",
+      "signalDate": "2026-05-11",
+      "entryPrice": 291.0,
+      "monthEndDate": "2026-05-29",
+      "returnPct": -9.49,
+      "hit20": false,
+      "score": 1.085
     },
     {
       "month": "2026-05",
@@ -349,7 +356,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-05-29",
       "returnPct": 13.91,
       "hit20": true,
-      "score": 0.832
+      "score": 0.853
     },
     {
       "month": "2026-06",
@@ -360,7 +367,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-06-30",
       "returnPct": 10.22,
       "hit20": true,
-      "score": 2.558
+      "score": 2.562
     },
     {
       "month": "2026-06",
@@ -371,7 +378,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-06-30",
       "returnPct": 1.98,
       "hit20": false,
-      "score": 1.57
+      "score": 1.559
     },
     {
       "month": "2026-06",
@@ -382,7 +389,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-06-30",
       "returnPct": 75.83,
       "hit20": true,
-      "score": 1.327
+      "score": 1.37
     },
     {
       "month": "2026-06",
@@ -393,7 +400,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-06-30",
       "returnPct": 70.21,
       "hit20": true,
-      "score": 0.922
+      "score": 0.916
     },
     {
       "month": "2026-06",
@@ -404,7 +411,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-06-30",
       "returnPct": 23.87,
       "hit20": true,
-      "score": 0.727
+      "score": 0.759
     },
     {
       "month": "2026-07",
@@ -415,7 +422,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-07-31",
       "returnPct": -55.6,
       "hit20": false,
-      "score": 3.876
+      "score": 3.886
     },
     {
       "month": "2026-07",
@@ -426,7 +433,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-07-31",
       "returnPct": -48.79,
       "hit20": false,
-      "score": 3.364
+      "score": 3.097
     },
     {
       "month": "2026-07",
@@ -437,7 +444,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-07-31",
       "returnPct": -37.18,
       "hit20": false,
-      "score": 2.804
+      "score": 2.841
     },
     {
       "month": "2026-07",
@@ -448,18 +455,18 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-07-31",
       "returnPct": -36.27,
       "hit20": true,
-      "score": 2.701
+      "score": 2.726
     },
     {
       "month": "2026-07",
-      "stockId": "6173",
-      "name": "信昌電",
+      "stockId": "4556",
+      "name": "旭然",
       "signalDate": "2026-07-10",
-      "entryPrice": 275.0,
+      "entryPrice": 101.0,
       "monthEndDate": "2026-07-31",
-      "returnPct": -47.47,
-      "hit20": false,
-      "score": 2.691
+      "returnPct": -21.96,
+      "hit20": true,
+      "score": 2.432
     },
     {
       "month": "2026-08",
@@ -470,7 +477,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-08-31",
       "returnPct": 15.66,
       "hit20": true,
-      "score": 2.214
+      "score": 2.263
     },
     {
       "month": "2026-08",
@@ -481,7 +488,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-08-31",
       "returnPct": 40.82,
       "hit20": true,
-      "score": 2.076
+      "score": 2.053
     },
     {
       "month": "2026-08",
@@ -492,7 +499,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-08-31",
       "returnPct": -0.87,
       "hit20": false,
-      "score": 2.027
+      "score": 2.025
     },
     {
       "month": "2026-08",
@@ -503,18 +510,18 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-08-31",
       "returnPct": 28.87,
       "hit20": true,
-      "score": 1.988
+      "score": 1.991
     },
     {
       "month": "2026-08",
-      "stockId": "7734",
-      "name": "印能科技",
+      "stockId": "4973",
+      "name": "廣穎電通",
       "signalDate": "2026-08-10",
-      "entryPrice": 3420.0,
+      "entryPrice": 160.0,
       "monthEndDate": "2026-08-31",
-      "returnPct": -17.78,
+      "returnPct": -4.13,
       "hit20": false,
-      "score": 1.9
+      "score": 1.738
     },
     {
       "month": "2026-09",
@@ -525,7 +532,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-09-30",
       "returnPct": 4.95,
       "hit20": true,
-      "score": 4.398
+      "score": 4.346
     },
     {
       "month": "2026-09",
@@ -536,18 +543,7 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-09-30",
       "returnPct": 124.56,
       "hit20": true,
-      "score": 3.154
-    },
-    {
-      "month": "2026-09",
-      "stockId": "6225",
-      "name": "天瀚",
-      "signalDate": "2026-09-10",
-      "entryPrice": 68.8,
-      "monthEndDate": "2026-09-30",
-      "returnPct": -11.86,
-      "hit20": false,
-      "score": 2.925
+      "score": 3.132
     },
     {
       "month": "2026-09",
@@ -558,30 +554,96 @@ window.DASHBOARD_DATA = {
       "monthEndDate": "2026-09-30",
       "returnPct": -17.38,
       "hit20": false,
-      "score": 2.618
+      "score": 3.086
     },
     {
       "month": "2026-09",
-      "stockId": "6667",
-      "name": "信紘科",
+      "stockId": "6225",
+      "name": "天瀚",
       "signalDate": "2026-09-10",
-      "entryPrice": 253.5,
+      "entryPrice": 68.8,
       "monthEndDate": "2026-09-30",
-      "returnPct": 2.97,
+      "returnPct": -11.86,
       "hit20": false,
-      "score": 2.421
+      "score": 2.851
+    },
+    {
+      "month": "2026-09",
+      "stockId": "6872",
+      "name": "浩宇生醫",
+      "signalDate": "2026-09-10",
+      "entryPrice": 27.05,
+      "monthEndDate": "2026-09-30",
+      "returnPct": -11.47,
+      "hit20": false,
+      "score": 1.903
+    },
+    {
+      "month": "2026-10",
+      "stockId": "3597",
+      "name": "映興",
+      "signalDate": "2026-10-12",
+      "entryPrice": 40.4,
+      "monthEndDate": "2026-10-30",
+      "returnPct": -0.38,
+      "hit20": true,
+      "score": 2.979
+    },
+    {
+      "month": "2026-10",
+      "stockId": "2305",
+      "name": "全友",
+      "signalDate": "2026-10-12",
+      "entryPrice": 65.5,
+      "monthEndDate": "2026-10-30",
+      "returnPct": -24.96,
+      "hit20": false,
+      "score": 2.603
+    },
+    {
+      "month": "2026-10",
+      "stockId": "6213",
+      "name": "聯茂",
+      "signalDate": "2026-10-12",
+      "entryPrice": 804.0,
+      "monthEndDate": "2026-10-30",
+      "returnPct": -14.93,
+      "hit20": false,
+      "score": 2.587
+    },
+    {
+      "month": "2026-10",
+      "stockId": "6708",
+      "name": "天擎",
+      "signalDate": "2026-10-12",
+      "entryPrice": 69.9,
+      "monthEndDate": "2026-10-30",
+      "returnPct": -11.54,
+      "hit20": false,
+      "score": 2.403
+    },
+    {
+      "month": "2026-10",
+      "stockId": "2340",
+      "name": "台亞",
+      "signalDate": "2026-10-12",
+      "entryPrice": 54.7,
+      "monthEndDate": "2026-10-30",
+      "returnPct": -25.33,
+      "hit20": false,
+      "score": 2.269
     }
   ],
   "current": {
     "summary": {
-      "avgReturnPct": -16.57,
-      "winRatePct": 0.0,
-      "latestDate": "2026-11-04",
+      "avgReturnPct": -16.23,
+      "winRatePct": 20.0,
+      "latestDate": "2026-11-05",
       "count": 5,
       "pendingEntry": false,
-      "closed": false,
+      "closed": true,
       "buyDate": "2026-10-12",
-      "sellDate": "",
+      "sellDate": "2026-11-05",
       "signalMonth": "2026-10"
     },
     "positions": [
@@ -602,9 +664,9 @@ window.DASHBOARD_DATA = {
           "連接器/線束",
           "基礎產業:電子零組件業"
         ],
-        "latestDate": "2026-11-04",
-        "latestClose": 38.75,
-        "returnPct": -4.08,
+        "latestDate": "2026-11-05",
+        "latestClose": 38.95,
+        "returnPct": -3.59,
         "peakDate": "2026-10-14",
         "peakPrice": 53.4,
         "peakReturnPct": 32.18
@@ -626,9 +688,9 @@ window.DASHBOARD_DATA = {
           "檢測設備/服務",
           "基礎產業:電腦及週邊設備業"
         ],
-        "latestDate": "2026-11-04",
-        "latestClose": 48.8,
-        "returnPct": -25.5,
+        "latestDate": "2026-11-05",
+        "latestClose": 48.0,
+        "returnPct": -26.72,
         "peakDate": "2026-10-13",
         "peakPrice": 74.7,
         "peakReturnPct": 14.05
@@ -652,9 +714,9 @@ window.DASHBOARD_DATA = {
           "晶圓製程設備零組件",
           "玻璃/建材玻璃"
         ],
-        "latestDate": "2026-11-04",
-        "latestClose": 612.0,
-        "returnPct": -23.88,
+        "latestDate": "2026-11-05",
+        "latestClose": 563.0,
+        "returnPct": -29.98,
         "peakDate": "2026-10-22",
         "peakPrice": 885.0,
         "peakReturnPct": 10.07
@@ -675,12 +737,12 @@ window.DASHBOARD_DATA = {
           "半導體IP/設計服務",
           "基礎產業:半導體業"
         ],
-        "latestDate": "2026-11-04",
-        "latestClose": 69.3,
-        "returnPct": -0.86,
-        "peakDate": "2026-10-12",
-        "peakPrice": 70.5,
-        "peakReturnPct": 0.86
+        "latestDate": "2026-11-05",
+        "latestClose": 76.2,
+        "returnPct": 9.01,
+        "peakDate": "2026-11-05",
+        "peakPrice": 76.2,
+        "peakReturnPct": 9.01
       },
       {
         "rank": 5,
@@ -697,9 +759,9 @@ window.DASHBOARD_DATA = {
           "半導體IP/設計服務",
           "基礎產業:半導體業"
         ],
-        "latestDate": "2026-11-04",
-        "latestClose": 39.1,
-        "returnPct": -28.52,
+        "latestDate": "2026-11-05",
+        "latestClose": 38.35,
+        "returnPct": -29.89,
         "peakDate": "2026-10-12",
         "peakPrice": 56.6,
         "peakReturnPct": 3.47
@@ -707,9 +769,9 @@ window.DASHBOARD_DATA = {
     ]
   },
   "dataStatus": {
-    "asOfDate": "2026-11-04",
-    "latestTradeDate": "2026-11-04",
-    "latestChipDate": "2026-11-04",
+    "asOfDate": "2026-11-05",
+    "latestTradeDate": "2026-11-05",
+    "latestChipDate": "2026-11-05",
     "latestRevenueMonth": "2026-09",
     "expectedRevenueMonth": "2026-09",
     "newMonthRevenueReady": true,
@@ -774,26 +836,32 @@ window.DASHBOARD_DATA = {
     },
     {
       "label": "2026-07",
-      "equity": 1.4235,
-      "returnPct": -45.06,
+      "equity": 1.5557,
+      "returnPct": -39.96,
       "kind": "completed"
     },
     {
       "label": "2026-08",
-      "equity": 1.6134,
-      "returnPct": 13.34,
+      "equity": 1.8057,
+      "returnPct": 16.07,
       "kind": "completed"
     },
     {
       "label": "2026-09",
-      "equity": 1.9466,
-      "returnPct": 20.65,
+      "equity": 2.1264,
+      "returnPct": 17.76,
       "kind": "completed"
     },
     {
-      "label": "Current 2026-11-04",
-      "equity": 1.6241,
-      "returnPct": -16.57,
+      "label": "2026-10",
+      "equity": 1.7983,
+      "returnPct": -15.43,
+      "kind": "completed"
+    },
+    {
+      "label": "Current 2026-11-05",
+      "equity": 1.5064,
+      "returnPct": -16.23,
       "kind": "current"
     }
   ]
