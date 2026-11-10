@@ -1,5 +1,5 @@
 window.DASHBOARD_DATA = {
-  "generatedAt": "2026-11-09T17:35:35",
+  "generatedAt": "2026-11-10T18:32:24",
   "strategyName": "月增 + 近5日最高價 > 60日均線 + Walk-forward共同點模型",
   "summary": {
     "completedMonths": 10,
@@ -769,13 +769,13 @@ window.DASHBOARD_DATA = {
     ]
   },
   "dataStatus": {
-    "asOfDate": "2026-11-09",
-    "latestTradeDate": "2026-11-09",
-    "latestChipDate": "2026-11-09",
-    "latestRevenueMonth": "2026-09",
-    "expectedRevenueMonth": "2026-09",
+    "asOfDate": "2026-11-10",
+    "latestTradeDate": "2026-11-10",
+    "latestChipDate": "2026-11-10",
+    "latestRevenueMonth": "2026-10",
+    "expectedRevenueMonth": "2026-10",
     "newMonthRevenueReady": true,
-    "rebalanceNotice": "尚未到本月換股日。"
+    "rebalanceNotice": "新月營收已就緒，可以依最新名單換股。"
   },
   "enhancedVersion": {
     "name": "加強版",
